@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mediavault.Home">
+   <children>
+      <ScrollPane layoutX="25.0" layoutY="100.0" prefHeight="200.0" prefWidth="159.0" />
+      <ScrollPane layoutX="221.0" layoutY="100.0" prefHeight="200.0" prefWidth="159.0" />
+      <ScrollPane layoutX="415.0" layoutY="100.0" prefHeight="200.0" prefWidth="159.0" />
+      <Label layoutX="63.0" layoutY="76.0" text="Browse Movies" />
+      <Label layoutX="262.0" layoutY="76.0" text="Browse Music" />
+      <Label layoutX="436.0" layoutY="76.0" text="Browse Video Games" />
+      <Label />
+      <Label layoutX="53.0" layoutY="30.0" />
+      <Label layoutX="513.0" layoutY="30.0" />
+      <TextField layoutX="84.0" layoutY="34.0" prefHeight="26.0" prefWidth="368.0" />
+      <Hyperlink layoutX="46.0" layoutY="36.0" text="🔎" />
+      <Hyperlink layoutX="472.0" layoutY="36.0" text="📋" />
+      <Hyperlink layoutX="500.0" layoutY="36.0" text="👤" />
+      <Hyperlink layoutX="530.0" layoutY="36.0" text="🛒" />
+   </children>
+</AnchorPane>
