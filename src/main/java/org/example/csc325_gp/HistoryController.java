@@ -29,17 +29,20 @@ public class HistoryController {
 
     @FXML
     void goToHistory(ActionEvent event) {
-
+        SceneManager sceneManager = SceneManager.getInstance();
+        sceneManager.showScene("history");
     }
 
     @FXML
     void gotToAccount(ActionEvent event) {
-
+        SceneManager sceneManager = SceneManager.getInstance();
+        sceneManager.showScene("account");
     }
 
     @FXML
     void gotToShoppingCard(ActionEvent event) {
-
+        SceneManager sceneManager = SceneManager.getInstance();
+        sceneManager.showScene("purchases");
     }
 
     @FXML

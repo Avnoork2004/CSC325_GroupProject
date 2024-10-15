@@ -39,23 +39,21 @@ public class HomeController {
     private ScrollPane videoGamesPanel;
 
     @FXML
-    void goToHistory(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("history.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        Stage stage = new Stage();
-        stage.setTitle("History");
-        stage.setScene(scene);
-        stage.show();
+    void goToHistory(ActionEvent event){
+        SceneManager sceneManager = SceneManager.getInstance();
+        sceneManager.showScene("history");
     }
 
     @FXML
     void gotToAccount(ActionEvent event) {
-
+        SceneManager sceneManager = SceneManager.getInstance();
+        sceneManager.showScene("account");
     }
 
     @FXML
     void gotToShoppingCart(ActionEvent event) {
-
+        SceneManager sceneManager = SceneManager.getInstance();
+        sceneManager.showScene("purchases");
     }
 
     @FXML
