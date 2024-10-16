@@ -11,6 +11,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         SceneManager sceneManager = SceneManager.getInstance();
+        stage.setResizable(false);
         sceneManager.setPrimaryStage(stage);
 
         sceneManager.loadScene("home", "home.fxml");

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.AccountInfoController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.AccountInfoController">
    <children>
       <ScrollPane layoutX="54.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
         <content>
@@ -31,10 +29,10 @@
       </Label>
       <Label layoutX="54.0" layoutY="26.0" />
       <Label layoutX="514.0" layoutY="26.0" />
-      <TextField fx:id="searchBar" layoutX="95.0" layoutY="30.0" prefHeight="26.0" prefWidth="368.0" promptText="Search..." />
-      <Hyperlink fx:id="history" layoutX="473.0" layoutY="32.0" onAction="#goToHistory" text="📋" />
-      <Hyperlink fx:id="account" layoutX="501.0" layoutY="32.0" onAction="#gotToAccount" text="👤" />
-      <Hyperlink fx:id="shoppingCart" layoutX="531.0" layoutY="32.0" onAction="#gotToShoppingCard" text="🛒" />
-      <Button fx:id="searchButton" layoutX="43.0" layoutY="30.0" mnemonicParsing="false" onAction="#submit" text="🔎" />
+      <VBox layoutX="10.0" layoutY="29.0" prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <fx:include source="toolbar.fxml" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
