@@ -11,19 +11,18 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         SceneManager sceneManager = SceneManager.getInstance();
+        stage.setResizable(false);
         sceneManager.setPrimaryStage(stage);
 
-        sceneManager.loadScene("home", "item-page.fxml");
+        sceneManager.loadScene("home", "home.fxml");
+        sceneManager.loadScene("history", "history.fxml");
+        sceneManager.loadScene("items", "item-page.fxml");
+        sceneManager.loadScene("account", "account-info.fxml");
+        sceneManager.loadScene("signIn", "sign-in.fxml");
+        sceneManager.loadScene("purchases", "purchases.fxml");
         sceneManager.showScene("home");
     }
 
-    public void switchToHistory(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("history.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("History");
-        stage.setScene(scene);
-        stage.show();
-    }
     public static void main(String[] args) {
         launch();
     }

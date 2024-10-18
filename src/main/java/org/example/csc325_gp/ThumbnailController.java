@@ -33,24 +33,4 @@ public class ThumbnailController {
     @FXML
     private Label thumbnail3;
 
-    @FXML
-    void goToHistory(ActionEvent event) {
-
-    }
-
-    @FXML
-    void gotToAccount(ActionEvent event) {
-
-    }
-
-    @FXML
-    void gotToShoppingCard(ActionEvent event) {
-
-    }
-
-    @FXML
-    void submit(ActionEvent event) {
-
-    }
-
 }

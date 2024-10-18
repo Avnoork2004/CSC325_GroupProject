@@ -32,25 +32,9 @@ public class PurchasesController {
 
     @FXML
     private Hyperlink shoppingCart;
-
+    
     @FXML
-    void goToHistory(ActionEvent event) {
+    void submitRent(ActionEvent event) {
 
     }
-
-    @FXML
-    void gotToAccount(ActionEvent event) {
-
-    }
-
-    @FXML
-    void gotToShoppingCard(ActionEvent event) {
-
-    }
-
-    @FXML
-    void submit(ActionEvent event) {
-
-    }
-
 }

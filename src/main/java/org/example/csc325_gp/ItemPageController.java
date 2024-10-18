@@ -42,23 +42,9 @@ public class ItemPageController {
     @FXML
     private Label title;
 
-    @FXML
-    void goToHistory(ActionEvent event) {
-
-    }
 
     @FXML
-    void gotToAccount(ActionEvent event) {
-
-    }
-
-    @FXML
-    void gotToShoppingCard(ActionEvent event) {
-
-    }
-
-    @FXML
-    void submit(ActionEvent event) {
+    void submitRent(ActionEvent event) {
 
     }
 
