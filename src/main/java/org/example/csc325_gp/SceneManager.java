@@ -23,15 +23,15 @@ public class SceneManager {
         this.primaryStage = stage;
     }
 
-    public void loadScene(String sceneName, String fxmlFile) {
+    public void loadScene(String fxmlScene) {
         try {
             // Load the FXML file and create a Scene
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/"+fxmlScene+".fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
             // Store the scene by name
-            scenes.put(sceneName, scene);
+            scenes.put(fxmlScene, scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

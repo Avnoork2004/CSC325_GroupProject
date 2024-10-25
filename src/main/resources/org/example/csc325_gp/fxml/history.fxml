@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.HistoryController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.HistoryController">
    <children>
       <ScrollPane fx:id="historyPanel" layoutX="58.0" layoutY="110.0" prefHeight="246.0" prefWidth="484.0">
         <content>

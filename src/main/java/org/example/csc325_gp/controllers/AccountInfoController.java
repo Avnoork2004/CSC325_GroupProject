@@ -1,4 +1,4 @@
-package org.example.csc325_gp;
+package org.example.csc325_gp.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,25 +11,10 @@ import javafx.scene.layout.AnchorPane;
 public class AccountInfoController {
 
     @FXML
-    private Hyperlink account;
-
-    @FXML
     private Label accountinfo;
 
     @FXML
     private Label accountinfotext;
-
-    @FXML
-    private Hyperlink history;
-
-    @FXML
-    private TextField searchBar;
-
-    @FXML
-    private Button searchButton;
-
-    @FXML
-    private Hyperlink shoppingCart;
 
     @FXML
     private AnchorPane tabsaccountinfo;
