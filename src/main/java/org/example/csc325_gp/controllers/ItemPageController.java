@@ -1,4 +1,4 @@
-package org.example.csc325_gp;
+package org.example.csc325_gp.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,10 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class ItemPageController {
-
-    @FXML
-    private Hyperlink account;
-
     @FXML
     private Label availability;
 
@@ -31,17 +27,7 @@ public class ItemPageController {
     private Button rentBtn;
 
     @FXML
-    private TextField searchBar;
-
-    @FXML
-    private Button searchButton;
-
-    @FXML
-    private Hyperlink shoppingCart;
-
-    @FXML
     private Label title;
-
 
     @FXML
     void submitRent(ActionEvent event) {

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.ToolbarController">
+   <children>
+      <AnchorPane prefHeight="35.0" prefWidth="478.0">
+         <children>
+            <Button fx:id="searchButton" layoutX="129.0" layoutY="5.0" mnemonicParsing="false" onAction="#submit" text="🔎" />
+            <TextField fx:id="searchBar" layoutX="157.0" layoutY="5.0" prefHeight="26.0" prefWidth="314.0" promptText="Search..." />
+            <HBox layoutX="499.0" layoutY="5.0" prefHeight="26.0" prefWidth="86.0">
+               <children>
+                  <Button fx:id="history" mnemonicParsing="false" onAction="#goToHistory" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="📋" />
+                  <Button fx:id="account" mnemonicParsing="false" onAction="#gotToAccount" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="👤" />
+                  <Button fx:id="shoppingCart" mnemonicParsing="false" onAction="#gotToShoppingCart" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="🛒" />
+               </children>
+            </HBox>
+            <ImageView fitHeight="35.0" fitWidth="65.0" layoutX="14.0" layoutY="-3.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/MediaVault3.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.PurchasesController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.PurchasesController">
    <children>
       <Label layoutX="29.0" layoutY="88.0" text="Cart Items">
          <font>
