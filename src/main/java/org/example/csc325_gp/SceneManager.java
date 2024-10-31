@@ -23,21 +23,26 @@ public class SceneManager {
         this.primaryStage = stage;
     }
 
-    public void loadScene(String fxmlScene) {
+    public boolean loadScene(String fxmlSceneName) {
         try {
             // Load the FXML file and create a Scene
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/"+fxmlScene+".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/"+fxmlSceneName+".fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
             // Store the scene by name
-            scenes.put(fxmlScene, scene);
+            scenes.put(fxmlSceneName, scene);
+            return true;
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Failed to load scene "+fxmlSceneName);
+            return false;
         }
     }
 
     public void showScene(String sceneName) {
+        if (!scenes.containsKey(sceneName)) if (!loadScene(sceneName)) return;
+
         Scene scene = scenes.get(sceneName);
         if (scene != null) {
             primaryStage.setScene(scene);
