@@ -12,7 +12,7 @@ public class MediaVault extends Application {
         stage.setResizable(false);
         sceneManager.setPrimaryStage(stage);
 
-        sceneManager.showScene("home");
+        sceneManager.showScene("sign-in");
     }
 
     public static void main(String[] args) {

@@ -1,120 +1,149 @@
 package org.example.csc325_gp.controllers;
-import java.util.ArrayList;
 
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import org.example.csc325_gp.User;
+import javafx.stage.Stage;
 
-import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
 
 public class SignInController {
 
-    private static final String USER_DATA_FILE = "users.dat";
-    private Map<String, User> userDatabase = new HashMap<>();
+    @FXML
+    private Button addButton; // Button to submit form
 
     @FXML
-    private PasswordField SignInPassField;
+    private TextField dobField; // TextField for Date of Birth
 
     @FXML
-    private PasswordField confirmPassField;
+    private TextField emailField; // TextField for Email
 
     @FXML
-    private Button loginBtn;
+    private TextField firstNameField; // TextField for First Name
 
     @FXML
-    private Button registerBtn;
+    private TextField lastNameField; // TextField for Last Name
 
     @FXML
-    private PasswordField registerPassField;
+    private Label validationMessage; // Label to display validation messages
 
     @FXML
-    private TextField registerUserField;
+    private TextField zipField; // TextField for Zip Code
+
+    // Regex for validation (checked with regex101)
+    private final String nameRegex = "^[a-zA-Z]{2,25}$";
+    private final String dobRegex = "^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)$";
+    private final String emailRegex = "^[a-zA-Z0-9._%+-]+@farmingdale.edu$";
+    private final String zipRegex = "^[0-9]{5}$";
 
     @FXML
-    private AnchorPane signInPassField;
-
-    @FXML
-    private TextField signInUserField;
-
-
     public void initialize() {
-        loadUserData();
+        // Add listeners for each field for focus change (showing & not showing button)
+        addFocusListeners();
+
+        // BooleanBinding to check all fields are valid
+        BooleanBinding isFormValid = Bindings.createBooleanBinding(() ->
+                        !firstNameField.getText().matches(nameRegex) ||
+                                !lastNameField.getText().matches(nameRegex) ||
+                                !emailField.getText().matches(emailRegex) ||
+                                !dobField.getText().matches(dobRegex) ||
+                                !zipField.getText().matches(zipRegex),
+                firstNameField.textProperty(),
+                lastNameField.textProperty(),
+                emailField.textProperty(),
+                dobField.textProperty(),
+                zipField.textProperty()
+        );
+
+        // Disables "Add" button if a field is not valid
+        addButton.disableProperty().bind(isFormValid);
+        addButton.setOnAction(this::onHelloButtonClick);
     }
 
-    @FXML
-    void submitLogin(ActionEvent event) {
-        String username = signInUserField.getText();
-        String password = SignInPassField.getText();
-
-        User user = userDatabase.get(username);
-        if (user != null && user.getPassword().equals(password)) {
-            showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome, " + user.getName() + "!");
-        } else {
-            showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
-        }
-    }
-
-    @FXML
-    void submitRegistration(ActionEvent event) {
-        String username = registerUserField.getText();
-        String password = registerPassField.getText();
-        String confirmPassword = confirmPassField.getText();
-
-        if (password.equals(confirmPassword)) {
-            if (userDatabase.containsKey(username)) {
-                showAlert(Alert.AlertType.ERROR, "Registration Failed", "Username already exists.");
-            } else {
-                User newUser = new User();
-                newUser.setUserID(generateUniqueUserID());
-                newUser.setName(username);
-                newUser.setEmail(username + "@example.com");
-                newUser.setPassword(password);
-                newUser.setProfilePicture("");
-                newUser.setCurrentlyRentedItems(new ArrayList<>());
-
-                userDatabase.put(username, newUser);
-                saveUserData();
-                showAlert(Alert.AlertType.INFORMATION, "Registration Successful", "Account created for " + username);
+    private void addFocusListeners() {
+        firstNameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Focus lost ( goes away)
+                checkValidity(firstNameField, nameRegex, "First Name");
             }
+        });
+
+        lastNameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Focus lost ( goes away)
+                checkValidity(lastNameField, nameRegex, "Last Name");
+            }
+        });
+
+        emailField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Focus lost ( goes away)
+                checkValidity(emailField, emailRegex, "Email");
+            }
+        });
+
+        dobField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Focus lost ( goes away)
+                checkValidity(dobField, dobRegex, "Date of Birth");
+            }
+        });
+
+        zipField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Focus lost ( goes away)
+                checkValidity(zipField, zipRegex, "Zip Code");
+            }
+        });
+    }
+
+    // checks if valid input for specific field using regular expression and updates validation message
+    private void checkValidity(TextField field, String regex, String fieldName) {
+        if (field.getText().matches(regex)) {
+            validationMessage.setText(fieldName + " is valid.");
         } else {
-            showAlert(Alert.AlertType.ERROR, "Registration Failed", "Passwords do not match.");
+            validationMessage.setText(fieldName + " is invalid.");
+        }
+    }
+
+    @FXML
+    private void onHelloButtonClick(ActionEvent event) {
+        if (!addButton.isDisabled()) {
+            // validationMessage.setText("Registration Successful!"); //  success message moved to new gui
+            loadAnotherView(); // Calls method to load new view fxml
+        } else {
+            validationMessage.setText("Please correct the invalid fields."); // Displays error if form is invalid
         }
     }
 
 
-    private void loadUserData() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(USER_DATA_FILE))) {
-            userDatabase = (Map<String, User>) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
+    /**
+     * Loads a new view by initializing another FXML file and displaying it in a new stage.
+     * The method  closes the current window after opening a new one.
+     *
+     * @throws IOException if there's an error loading the FXML file.
+     */
 
-    private void saveUserData() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(USER_DATA_FILE))) {
-            oos.writeObject(userDatabase);
+    private void loadAnotherView() {
+        try {
+            // Loads new FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/csc325_gp/fxml/home.fxml"));
+            Parent anotherView = loader.load();
+
+            // Creates new stage and sets scene for new view
+            Stage stage = new Stage();
+            stage.setScene(new Scene(anotherView, 600, 400));
+            stage.setTitle("Home");
+            stage.show();
+
+            // Closes the current window after opening the new one (another-view)
+            ((Stage) addButton.getScene().getWindow()).close();
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // error handling during loading
         }
-    }
-
-
-    private int generateUniqueUserID() {
-        return userDatabase.size() + 1;
-
-    private void showAlert(Alert.AlertType alertType, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 }
+

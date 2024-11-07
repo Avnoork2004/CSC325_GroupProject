@@ -1,6 +1,7 @@
 module org.example.csc325_gp {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens org.example.csc325_gp to javafx.fxml;
