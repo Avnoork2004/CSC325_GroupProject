@@ -1,56 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.ItemPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.ItemPageController">
    <children>
-      <Label layoutX="73.0" layoutY="126.0" text="🎬">
-         <font>
-            <Font size="96.0" />
-         </font>
-      </Label>
       <Button fx:id="rentBtn" layoutX="456.0" layoutY="232.0" mnemonicParsing="false" onAction="#submitRent" text="RENT" />
       <Label layoutX="212.0" layoutY="109.0" />
-      <Label fx:id="title" layoutX="225.0" layoutY="104.0" text="Title:">
+      <Label fx:id="title" layoutX="225.0" layoutY="104.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Title:" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
+         <padding>
+            <Insets bottom="2.0" left="9.0" right="9.0" top="2.0" />
+         </padding>
       </Label>
-      <Label fx:id="genre" layoutX="224.0" layoutY="152.0" text="Genre:">
+      <Label fx:id="genre" layoutX="224.0" layoutY="152.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Genre:" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
+         <padding>
+            <Insets bottom="2.0" left="9.0" right="9.0" top="2.0" />
+         </padding>
       </Label>
-      <Label fx:id="availability" layoutX="228.0" layoutY="200.0" text="Availability:">
+      <Label fx:id="availability" layoutX="222.0" layoutY="200.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Availability:" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
+         <padding>
+            <Insets bottom="2.0" left="9.0" right="9.0" top="2.0" />
+         </padding>
       </Label>
-      <Label fx:id="productDescription" layoutX="225.0" layoutY="252.0" text="Product Description:">
+      <Label fx:id="productDescription" layoutX="225.0" layoutY="252.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Product Description:" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
+         <padding>
+            <Insets bottom="2.0" left="9.0" right="9.0" top="2.0" />
+         </padding>
       </Label>
-      <Label fx:id="rating" layoutX="225.0" layoutY="301.0" text="Rating:">
+      <Label fx:id="rating" layoutX="225.0" layoutY="301.0" style="-fx-background-color: #009ffe; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Rating:" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
+         <padding>
+            <Insets bottom="2.0" left="9.0" right="9.0" top="2.0" />
+         </padding>
       </Label>
-      <Label layoutX="74.0" layoutY="80.0" text="History">
+      <Label layoutX="79.0" layoutY="106.0" style="-fx-background-color: #00a9ff; -fx-border-width: 4; -fx-border-color: #fffeee;" text="History" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
+         <padding>
+            <Insets bottom="2.0" left="7.0" right="7.0" top="2.0" />
+         </padding>
       </Label>
-      <Label layoutX="62.0" layoutY="29.0" />
-      <Label layoutX="522.0" layoutY="29.0" />
-      <VBox layoutX="10.0" layoutY="29.0" prefHeight="38.0" prefWidth="600.0">
+      <Label layoutX="57.0" layoutY="29.0" />
+      <Label layoutX="517.0" layoutY="29.0" />
+      <VBox alignment="CENTER" layoutX="-2.0" layoutY="38.0" prefHeight="42.0" prefWidth="600.0" stylesheets="@../stylesheets/default.css">
          <children>
-            <fx:include source="toolbar.fxml" />
+            <AnchorPane layoutX="8.0" layoutY="34.0" prefHeight="35.0" prefWidth="478.0">
+               <children>
+                  <Button fx:id="searchButton" layoutX="129.0" layoutY="5.0" mnemonicParsing="false" onAction="#submit" text="🔎" />
+                  <TextField fx:id="searchBar" layoutX="157.0" layoutY="5.0" prefHeight="26.0" prefWidth="314.0" promptText="Search..." />
+                  <HBox layoutX="497.0" layoutY="5.0" prefHeight="26.0" prefWidth="103.0">
+                     <children>
+                        <Button fx:id="history" mnemonicParsing="false" onAction="#goToHistory" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="📋" />
+                        <Button fx:id="account" mnemonicParsing="false" onAction="#gotToAccount" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="👤" />
+                        <Button fx:id="shoppingCart" mnemonicParsing="false" onAction="#gotToShoppingCart" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="🛒" />
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="35.0" fitWidth="65.0" layoutX="14.0" layoutY="-3.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/MediaVault1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
+      <ImageView fitHeight="116.0" fitWidth="171.0" layoutX="33.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/MediaVault1.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

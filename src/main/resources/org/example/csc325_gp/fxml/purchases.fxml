@@ -1,47 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.PurchasesController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.PurchasesController">
    <children>
-      <Label layoutX="29.0" layoutY="88.0" text="Cart Items">
+      <Label layoutX="81.0" layoutY="90.0" style="-fx-background-color: #00a9ff; -fx-border-width: 4; -fx-border-color: #fffeee;" text="Cart Items" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
+         <padding>
+            <Insets bottom="2.0" left="7.0" right="7.0" top="2.0" />
+         </padding>
       </Label>
-      <Button fx:id="rentBtn" layoutX="418.0" layoutY="337.0" mnemonicParsing="false" onAction="#submitRent" prefHeight="26.0" prefWidth="70.0" text="Rent" />
+      <Button fx:id="rentBtn" layoutX="434.0" layoutY="352.0" mnemonicParsing="false" onAction="#submitRent" prefHeight="26.0" prefWidth="70.0" text="Rent" />
       <Label layoutX="72.0" layoutY="81.0" />
       <Label layoutX="532.0" layoutY="81.0" />
-      <ScrollPane layoutX="29.0" layoutY="121.0" prefHeight="200.0" prefWidth="200.0">
+      <ScrollPane layoutX="29.0" layoutY="137.0" prefHeight="200.0" prefWidth="200.0">
         <content>
           <AnchorPane fx:id="cartPanel" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
         </content>
       </ScrollPane>
-      <ScrollPane layoutX="343.0" layoutY="121.0" prefHeight="200.0" prefWidth="200.0">
+      <ScrollPane layoutX="369.0" layoutY="137.0" prefHeight="200.0" prefWidth="200.0">
         <content>
           <AnchorPane fx:id="receiptPanel" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
         </content>
       </ScrollPane>
-      <Label layoutX="343.0" layoutY="90.0" text="Receipt">
+      <Label layoutX="431.0" layoutY="90.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Receipt" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
+         <padding>
+            <Insets bottom="2.0" left="7.0" right="7.0" top="2.0" />
+         </padding>
       </Label>
-      <Label layoutX="66.0" layoutY="74.0">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="54.0" layoutY="24.0" />
-      <Label layoutX="514.0" layoutY="24.0" />
-      <VBox layoutX="10.0" layoutY="29.0" prefHeight="38.0" prefWidth="600.0">
+      <AnchorPane layoutX="8.0" layoutY="34.0" prefHeight="35.0" prefWidth="478.0">
          <children>
-            <fx:include source="toolbar.fxml" />
+            <HBox layoutX="499.0" layoutY="5.0" prefHeight="26.0" prefWidth="86.0" />
+         </children>
+      </AnchorPane>
+      <VBox alignment="CENTER" layoutX="8.0" layoutY="34.0" prefHeight="42.0" prefWidth="600.0" stylesheets="@../stylesheets/default.css">
+         <children>
+            <AnchorPane prefHeight="35.0" prefWidth="478.0">
+               <children>
+                  <Button fx:id="searchButton" layoutX="129.0" layoutY="5.0" mnemonicParsing="false" onAction="#submit" text="🔎" />
+                  <TextField fx:id="searchBar" layoutX="157.0" layoutY="5.0" prefHeight="26.0" prefWidth="314.0" promptText="Search..." />
+                  <HBox layoutX="497.0" layoutY="5.0" prefHeight="26.0" prefWidth="103.0">
+                     <children>
+                        <Button fx:id="history" mnemonicParsing="false" onAction="#goToHistory" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="📋" />
+                        <Button fx:id="account" mnemonicParsing="false" onAction="#gotToAccount" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="👤" />
+                        <Button fx:id="shoppingCart" mnemonicParsing="false" onAction="#gotToShoppingCart" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="🛒" />
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="35.0" fitWidth="65.0" layoutX="14.0" layoutY="-3.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/MediaVault1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
    </children>
