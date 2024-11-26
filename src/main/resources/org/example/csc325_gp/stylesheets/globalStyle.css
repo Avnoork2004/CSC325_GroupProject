@@ -1,0 +1,25 @@
+* {
+    /* Color Variables */
+    -fx-bg-color-1: rgba(255, 255, 255, 0);
+    -fx-bg-color-2: #ffffff;
+    -fx-bg-color-3: #b1b1b1;
+    -fx-text-color: #000000;
+    -fx-hover-text-color: #e6f7ff;
+    -fx-disabled-text-color: #999999;
+
+    -fx-btn-color: #32c3ff;
+    -fx-hover-btn-color: #2cb1d1;
+    -fx-disabled-btn-color: #cccccc;
+
+    /* Default Colors */
+
+    /*
+    -fx-background-color: -fx-bg-color-1;
+    -fx-text-fill: -fx-text-color;
+    -fx-text-background-color: -fx-text-color;
+    */
+}
+
+.text {
+    -fx-font-family: Arial;
+}

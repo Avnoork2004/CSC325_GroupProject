@@ -9,10 +9,10 @@ public class MediaVault extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         SceneManager sceneManager = SceneManager.getInstance();
-        stage.setResizable(false);
+        stage.setResizable(true);
         sceneManager.setPrimaryStage(stage);
 
-        sceneManager.showScene("sign-in");
+        sceneManager.showScene("sign-in",860, 680);
     }
 
     public static void main(String[] args) {

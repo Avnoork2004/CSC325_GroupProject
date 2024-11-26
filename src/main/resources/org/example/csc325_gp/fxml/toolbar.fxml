@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.ToolbarController">
+<VBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0" stylesheets="@../stylesheets/globalStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.ToolbarController">
    <children>
       <AnchorPane prefHeight="35.0" prefWidth="478.0">
          <children>
