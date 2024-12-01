@@ -15,7 +15,7 @@
     </padding>
    <Text fill="#00a9ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-text" text="MEDIA VAULT" textAlignment="CENTER" wrappingWidth="307.20977783203125">
       <font>
-         <Font name="System Bold Italic" size="38.0" />
+         <Font name="Euphemia UCAS Bold" size="38.0" />
       </font>
    </Text>
    <Pane prefHeight="317.0" prefWidth="414.0">
