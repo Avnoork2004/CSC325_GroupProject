@@ -1,7 +1,7 @@
 package org.example.csc325_gp.controllers;
 
-import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,19 +11,33 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import org.example.csc325_gp.SceneManager;
 
-public class SignInController {
+public class RegisterController {
 
-    public PasswordField passField;
+
     public VBox root;
     @FXML
     private Button confirmBtn; // Button to submit form
 
     @FXML
-    private Label validationMessage; // Label to display validation messages
+    private TextField dobField; // TextField for Date of Birth
 
     @FXML
     private TextField emailField; // TextField for Email
 
+    @FXML
+    private TextField firstNameField; // TextField for First Name
+
+    @FXML
+    private TextField lastNameField; // TextField for Last Name
+
+    @FXML
+    private PasswordField passField;
+
+    @FXML
+    private Label validationMessage; // Label to display validation messages
+
+    @FXML
+    private TextField zipField; // TextField for Zip Code
 
     // Regex for validation (checked with regex101)
     private final String nameRegex = "^[a-zA-Z]{2,25}$";
@@ -40,8 +54,16 @@ public class SignInController {
 
         // BooleanBinding to check all fields are valid
         BooleanBinding isFormValid = Bindings.createBooleanBinding(() ->
-                    !emailField.getText().matches(emailRegex),
+                        !firstNameField.getText().matches(nameRegex) ||
+                                !lastNameField.getText().matches(nameRegex) ||
+                                !emailField.getText().matches(emailRegex) ||
+                                !dobField.getText().matches(dobRegex) ||
+                                !zipField.getText().matches(zipRegex),
+                firstNameField.textProperty(),
+                lastNameField.textProperty(),
                 emailField.textProperty(),
+                dobField.textProperty(),
+                zipField.textProperty(),
                 passField.textProperty()
         );
 
@@ -50,9 +72,33 @@ public class SignInController {
     }
 
     private void addFocusListeners() {
+        firstNameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Focus lost ( goes away)
+                checkValidity(firstNameField, nameRegex, "First Name");
+            }
+        });
+
+        lastNameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Focus lost ( goes away)
+                checkValidity(lastNameField, nameRegex, "Last Name");
+            }
+        });
+
         emailField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue) { // Focus lost ( goes away)
                 checkValidity(emailField, emailRegex, "Email");
+            }
+        });
+
+        dobField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Focus lost ( goes away)
+                checkValidity(dobField, dobRegex, "Date of Birth");
+            }
+        });
+
+        zipField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Focus lost ( goes away)
+                checkValidity(zipField, zipRegex, "Zip Code");
             }
         });
     }
@@ -66,8 +112,8 @@ public class SignInController {
         }
     }
 
-    public void goToRegister(ActionEvent actionEvent) {
-        sm.showScene("register");
+    public void goToSignIn(ActionEvent actionEvent) {
+        sm.showScene("sign-in");
     }
 
     public void goToHome(ActionEvent actionEvent) {
