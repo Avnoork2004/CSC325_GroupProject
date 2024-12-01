@@ -30,7 +30,9 @@ public class SceneManager {
         try {
             // Load the FXML file and create a Scene
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/"+fxmlSceneName+".fxml"));
+            System.out.println("Passed retrieve:" + loader);
             Parent root = loader.load();
+            System.out.println("Passed load");
             Scene scene = new Scene(root);
 
             // Store the scene by name

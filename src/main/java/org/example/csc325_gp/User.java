@@ -15,6 +15,15 @@ public class User {
 
     ArrayList<MediaItem> currentlyRentedItems;
 
+    public User(int ID, String NAME, String PASS, String EMAIL){
+        userID = ID;
+        name = NAME;
+        password = PASS;
+        email = EMAIL;
+        profilePicture = "This funny picture of obi wan kenobi I found on my macbook";
+        currentlyRentedItems = new ArrayList<MediaItem>();
+    }
+
     public void setUserID(int userID) {
         this.userID = userID;
     }

@@ -9,7 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import org.example.csc325_gp.PersistentData;
 import org.example.csc325_gp.SceneManager;
+import org.example.csc325_gp.User;
 
 public class SignInController {
 
@@ -71,6 +73,8 @@ public class SignInController {
     }
 
     public void goToHome(ActionEvent actionEvent) {
+        PersistentData inst = PersistentData.getInstance();
+        inst.setUser(new User(1, "Wumpus", "I will now do a twirl", "kuczbj@farmingdale.edu"));
         sm.showScene("home");
     }
 }
