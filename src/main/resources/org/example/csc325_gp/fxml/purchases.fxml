@@ -4,71 +4,49 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.PurchasesController">
+
+<VBox prefHeight="554.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.PurchasesController">
    <children>
-      <Label layoutX="81.0" layoutY="90.0" style="-fx-background-color: #00a9ff; -fx-border-width: 4; -fx-border-color: #fffeee;" text="Cart Items" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-         <padding>
-            <Insets bottom="2.0" left="7.0" right="7.0" top="2.0" />
-         </padding>
-      </Label>
-      <Button fx:id="rentBtn" layoutX="434.0" layoutY="352.0" mnemonicParsing="false" onAction="#submitRent" prefHeight="26.0" prefWidth="70.0" text="Rent" />
-      <Label layoutX="72.0" layoutY="81.0" />
-      <Label layoutX="532.0" layoutY="81.0" />
-      <ScrollPane layoutX="29.0" layoutY="137.0" prefHeight="200.0" prefWidth="200.0">
-        <content>
-          <AnchorPane fx:id="cartPanel" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
-      </ScrollPane>
-      <ScrollPane layoutX="369.0" layoutY="137.0" prefHeight="200.0" prefWidth="200.0">
-        <content>
-          <AnchorPane fx:id="receiptPanel" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
-      </ScrollPane>
-      <Label layoutX="431.0" layoutY="90.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Receipt" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-         <padding>
-            <Insets bottom="2.0" left="7.0" right="7.0" top="2.0" />
-         </padding>
-      </Label>
-      <AnchorPane layoutX="8.0" layoutY="34.0" prefHeight="35.0" prefWidth="478.0">
-         <children>
-            <HBox layoutX="499.0" layoutY="5.0" prefHeight="26.0" prefWidth="86.0" />
-         </children>
-      </AnchorPane>
-      <VBox alignment="CENTER" layoutX="8.0" layoutY="34.0" prefHeight="42.0" prefWidth="600.0" stylesheets="@../stylesheets/default.css">
-         <children>
-            <AnchorPane prefHeight="35.0" prefWidth="478.0">
+      <fx:include source="toolbar.fxml" />
+      <BorderPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <center>
+            <HBox alignment="CENTER" fillHeight="false" prefHeight="100.0" prefWidth="200.0" spacing="60.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="searchButton" layoutX="129.0" layoutY="5.0" mnemonicParsing="false" onAction="#submit" text="🔎" />
-                  <TextField fx:id="searchBar" layoutX="157.0" layoutY="5.0" prefHeight="26.0" prefWidth="314.0" promptText="Search..." />
-                  <HBox layoutX="497.0" layoutY="5.0" prefHeight="26.0" prefWidth="103.0">
+                  <VBox alignment="CENTER" prefHeight="372.0" prefWidth="351.0">
                      <children>
-                        <Button fx:id="history" mnemonicParsing="false" onAction="#goToHistory" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="📋" />
-                        <Button fx:id="account" mnemonicParsing="false" onAction="#gotToAccount" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="👤" />
-                        <Button fx:id="shoppingCart" mnemonicParsing="false" onAction="#gotToShoppingCart" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="🛒" />
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #00a9ff; -fx-border-width: 4; -fx-border-color: #fffeee;" text="Cart Items" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" left="7.0" right="7.0" top="2.0" />
+                           </padding>
+                        </Label>
+                        <ScrollPane prefHeight="102.0" prefWidth="197.0" VBox.vgrow="ALWAYS" />
                      </children>
-                  </HBox>
-                  <ImageView fitHeight="35.0" fitWidth="65.0" layoutX="14.0" layoutY="-3.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/MediaVault1.png" />
-                     </image>
-                  </ImageView>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="339.0" prefWidth="198.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="105.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Receipt" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" left="7.0" right="7.0" top="2.0" />
+                           </padding>
+                        </Label>
+                        <ScrollPane prefHeight="301.0" prefWidth="198.0" />
+                        <Button fx:id="rentBtn" mnemonicParsing="false" onAction="#submitRent" prefHeight="26.0" prefWidth="70.0" text="Rent" />
+                     </children>
+                  </VBox>
                </children>
-            </AnchorPane>
-         </children>
-      </VBox>
+            </HBox>
+         </center>
+      </BorderPane>
    </children>
-</AnchorPane>
+</VBox>

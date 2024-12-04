@@ -50,10 +50,8 @@ public class SignInController {
     }
 
     private void addFocusListeners() {
-        emailField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue) { // Focus lost ( goes away)
-                checkValidity(emailField, emailRegex, "Email");
-            }
+        emailField.textProperty().addListener((observable, oldValue, newValue) -> {
+            checkValidity(emailField, emailRegex, "Email");
         });
     }
 
