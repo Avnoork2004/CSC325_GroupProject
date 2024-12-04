@@ -6,10 +6,6 @@ package org.example.csc325_gp.controllers;
 
 import java.sql.*;
 
-/**
- *
- * @author MoaathAlrajab
- */
 public class ConnDbOps {
     final String MYSQL_SERVER_URL = "jdbc:mysql://csc325gp.mysql.database.azure.com/";
     final String DB_URL = "jdbc:mysql://csc325gp.mysql.database.azure.com/DBname";
@@ -65,7 +61,6 @@ public class ConnDbOps {
 
     public  void queryUserByName(String name) {
 
-
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "SELECT * FROM users WHERE name = ?";
@@ -90,8 +85,6 @@ public class ConnDbOps {
     }
 
     public  void listAllUsers() {
-
-
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -141,6 +134,4 @@ public class ConnDbOps {
             e.printStackTrace();
         }
     }
-
-
 }
