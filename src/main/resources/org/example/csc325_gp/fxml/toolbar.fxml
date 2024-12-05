@@ -22,8 +22,9 @@
             </HBox>
          </center>
          <right>
-            <HBox fillHeight="false" prefHeight="35.0" prefWidth="89.0" spacing="2.0" BorderPane.alignment="CENTER">
+            <HBox fillHeight="false" prefHeight="35.0" prefWidth="125.0" spacing="2.0" BorderPane.alignment="CENTER">
                <children>
+                  <Button fx:id="home" mnemonicParsing="false" onAction="#goToHome" prefHeight="63.0" prefWidth="28.0" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="🏠" />
                   <Button fx:id="history" mnemonicParsing="false" onAction="#goToHistory" prefHeight="63.0" prefWidth="28.0" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="📋" />
                   <Button fx:id="account" mnemonicParsing="false" onAction="#gotToAccount" prefHeight="42.0" prefWidth="28.0" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="👤" />
                   <Button fx:id="shoppingCart" mnemonicParsing="false" onAction="#gotToShoppingCart" prefHeight="83.0" prefWidth="28.0" style="-fx-focus-traversable: false; -fx-background-color: #ffffff00;" text="🛒" />

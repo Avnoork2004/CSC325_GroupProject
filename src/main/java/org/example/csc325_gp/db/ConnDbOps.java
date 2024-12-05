@@ -15,7 +15,6 @@ public class ConnDbOps {
     public  boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
 
-
         //Class.forName("com.mysql.jdbc.Driver");
         try {
             //First, connect to MYSQL server and create the database if not created

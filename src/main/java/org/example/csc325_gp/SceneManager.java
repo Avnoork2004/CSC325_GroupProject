@@ -37,8 +37,9 @@ public class SceneManager {
             scenes.put(fxmlSceneName, scene);
             return true;
         } catch (IOException e) {
-            //e.printStackTrace();
-            System.out.println("Failed to load scene "+fxmlSceneName);
+            System.out.println("Failed to load scene: " + "'"+fxmlSceneName+"'");
+            System.out.println(e.getMessage());
+            System.out.println(e.getCause().toString());
             return false;
         }
     }
@@ -68,7 +69,7 @@ public class SceneManager {
             }
             primaryStage.show();
         } else {
-            System.out.println("Scene not found: " + sceneName);
+            System.out.println("Scene not found: " + "'"+sceneName+"'");
         }
     }
 

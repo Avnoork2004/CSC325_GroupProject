@@ -25,7 +25,7 @@ public class ToolbarController {
     private Button searchButton;
 
     @FXML
-    void goToHome(MouseEvent event){
+    void goToHome(){
         SceneManager sceneManager = SceneManager.getInstance();
         sceneManager.showScene("home");
     }

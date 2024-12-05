@@ -1,0 +1,9 @@
+#ratingBar  .bar {
+    -fx-background-color: #ffd511;
+}
+#ratingBar  .track {
+    -fx-background-color: rgba(255, 255, 255, 0);
+}
+#ratingBar {
+    -fx-padding: -5;
+}
