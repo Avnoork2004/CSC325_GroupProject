@@ -2,6 +2,9 @@ package org.example.csc325_gp;
 
 import java.util.ArrayList;
 
+/**
+ * An object class that holds the information for a user.
+ */
 public class User {
     int userID;
 
