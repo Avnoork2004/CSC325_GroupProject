@@ -1,5 +1,8 @@
 package org.example.csc325_gp;
 
+/**
+ * An object class that holds the information for a Media Item.
+ */
 public class MediaItem {
     int mediaID;
 

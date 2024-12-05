@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="232.0" prefWidth="379.0" spacing="2.0" stylesheets="@../../stylesheets/media-item.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.MediaItemCon">
+   <children>
+      <HBox alignment="CENTER" prefHeight="107.0" prefWidth="274.0" spacing="20.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="132.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/placeholder.png" />
+               </image>
+            </ImageView>
+            <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="145.0" spacing="10.0">
+               <children>
+                  <Label fx:id="itemName" text="Media Name" />
+                  <HBox prefHeight="14.0" prefWidth="105.0">
+                     <children>
+                        <Label fx:id="itemName1" text="Genre: " />
+                        <Label fx:id="itemName11" text="Genre Name" />
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="itemName2" text="Description" />
+                        <TextArea editable="false" prefHeight="72.0" prefWidth="145.0" text="Description Here&#10;&#10;" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <Label fx:id="priceTag" text="\$16.99" />
+                  <StackPane alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="143.0">
+                     <children>
+                        <ImageView fx:id="starMask" fitHeight="20.0" fitWidth="111.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/ratingStars.png" />
+                           </image>
+                        </ImageView>
+                        <ProgressBar fx:id="ratingBar" prefHeight="23.0" prefWidth="102.0" progress="0.5" />
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <Button mnemonicParsing="false" text="Rent" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="2.0" right="2.0" top="2.0" />
+   </padding>
+</VBox>

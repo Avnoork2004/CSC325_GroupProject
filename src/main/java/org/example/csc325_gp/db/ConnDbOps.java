@@ -2,14 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.example.csc325_gp.controllers;
+package org.example.csc325_gp.db;
 
 import java.sql.*;
 
-/**
- *
- * @author MoaathAlrajab
- */
 public class ConnDbOps {
     final String MYSQL_SERVER_URL = "jdbc:mysql://csc325gp.mysql.database.azure.com/";
     final String DB_URL = "jdbc:mysql://csc325gp.mysql.database.azure.com/DBname";
@@ -18,7 +14,6 @@ public class ConnDbOps {
 
     public  boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
-
 
         //Class.forName("com.mysql.jdbc.Driver");
         try {
@@ -65,7 +60,6 @@ public class ConnDbOps {
 
     public  void queryUserByName(String name) {
 
-
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "SELECT * FROM users WHERE name = ?";
@@ -90,8 +84,6 @@ public class ConnDbOps {
     }
 
     public  void listAllUsers() {
-
-
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -141,6 +133,4 @@ public class ConnDbOps {
             e.printStackTrace();
         }
     }
-
-
 }

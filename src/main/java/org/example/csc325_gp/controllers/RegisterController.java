@@ -72,34 +72,24 @@ public class RegisterController {
     }
 
     private void addFocusListeners() {
-        firstNameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue) { // Focus lost ( goes away)
-                checkValidity(firstNameField, nameRegex, "First Name");
-            }
+        firstNameField.textProperty().addListener((observable, oldValue, newValue) -> {
+            checkValidity(firstNameField, nameRegex, "First Name");
         });
 
-        lastNameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue) { // Focus lost ( goes away)
-                checkValidity(lastNameField, nameRegex, "Last Name");
-            }
+        lastNameField.textProperty().addListener((observable, oldValue, newValue) -> {
+            checkValidity(lastNameField, nameRegex, "Last Name");
         });
 
-        emailField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue) { // Focus lost ( goes away)
-                checkValidity(emailField, emailRegex, "Email");
-            }
+        emailField.textProperty().addListener((observable, oldValue, newValue) -> {
+            checkValidity(emailField, emailRegex, "Email");
         });
 
-        dobField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue) { // Focus lost ( goes away)
-                checkValidity(dobField, dobRegex, "Date of Birth");
-            }
+        dobField.textProperty().addListener((observable, oldValue, newValue) -> {
+            checkValidity(dobField, dobRegex, "Date of Birth");
         });
 
-        zipField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue) { // Focus lost ( goes away)
-                checkValidity(zipField, zipRegex, "Zip Code");
-            }
+        zipField.textProperty().addListener((observable, oldValue, newValue) -> {
+            checkValidity(zipField, zipRegex, "Zip Code");
         });
     }
 

@@ -3,41 +3,89 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" stylesheets="@../stylesheets/default.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.HomeController">
+<VBox prefHeight="658.0" prefWidth="975.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc325_gp.controllers.HomeController">
    <children>
-      <ScrollPane fx:id="moviePanel" layoutX="25.0" layoutY="160.0" prefHeight="200.0" prefWidth="159.0" />
-      <ScrollPane fx:id="musicPanel" layoutX="221.0" layoutY="160.0" prefHeight="200.0" prefWidth="159.0" />
-      <ScrollPane fx:id="videoGamesPanel" layoutX="415.0" layoutY="160.0" prefHeight="200.0" prefWidth="159.0" />
-      <VBox layoutX="8.0" layoutY="34.0" prefHeight="38.0" prefWidth="600.0">
-         <fx:include source="toolbar.fxml" />
-      </VBox>
-      <Label layoutX="25.0" layoutY="99.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Browse Movies" textFill="WHITE" AnchorPane.topAnchor="99.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-         <padding>
-            <Insets bottom="7.0" left="24.0" right="24.0" top="7.0" />
-         </padding></Label>
-      <Label layoutX="221.0" layoutY="99.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Browse Music" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-         <padding>
-            <Insets bottom="7.0" left="28.0" right="28.0" top="7.0" />
-         </padding></Label>
-      <Label layoutX="413.0" layoutY="99.0" style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Browse Video Games" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-         <padding>
-            <Insets bottom="7.0" left="5.0" right="5.0" top="7.0" />
-         </padding></Label>
-      <Label />
-      <Label layoutX="55.0" layoutY="28.0" />
-      <Label layoutX="515.0" layoutY="28.0" />
+      <fx:include source="toolbar.fxml" VBox.vgrow="NEVER" />
+      <BorderPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <center>
+            <VBox alignment="CENTER" prefHeight="337.0" prefWidth="1506.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" fillHeight="false" prefHeight="343.0" prefWidth="1506.0" spacing="30.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="275.0" HBox.hgrow="NEVER">
+                           <children>
+                              <Label style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Browse Movies" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="7.0" left="24.0" right="24.0" top="7.0" />
+                                 </padding>
+                              </Label>
+                              <ScrollPane fx:id="moviePanel" hbarPolicy="NEVER" prefHeight="253.0" prefWidth="309.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="ItemContainerMovies" prefHeight="0.0" prefWidth="252.0">
+                                       <children>
+                                          <fx:include source="components/media-item.fxml" />
+                                          <fx:include source="components/media-item.fxml" />
+                                          <fx:include source="components/media-item.fxml" />
+                                       </children>
+                                    </VBox>
+                                 </content></ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="275.0">
+                           <children>
+                              <Label style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Browse Music" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="7.0" left="28.0" right="28.0" top="7.0" />
+                                 </padding>
+                              </Label>
+                              <ScrollPane fx:id="moviePanel1" hbarPolicy="NEVER" prefHeight="300.0" prefWidth="193.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="ItemContainerMusic" prefHeight="0.0" prefWidth="230.0">
+                                       <children>
+                                          <fx:include source="components/media-item.fxml" />
+                                          <fx:include source="components/media-item.fxml" />
+                                          <fx:include source="components/media-item.fxml" />
+                                       </children></VBox>
+                                 </content></ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="275.0">
+                           <children>
+                              <Label style="-fx-background-color: #00a9ff; -fx-border-color: #fffeee; -fx-border-width: 4;" text="Browse Video Games" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="7.0" left="5.0" right="5.0" top="7.0" />
+                                 </padding>
+                              </Label>
+                              <ScrollPane fx:id="moviePanel2" hbarPolicy="NEVER" prefHeight="412.0" prefWidth="193.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="ItemContainerGames" prefHeight="209.0" prefWidth="162.0">
+                                       <children>
+                                          <fx:include source="components/media-item.fxml" />
+                                          <fx:include source="components/media-item.fxml" />
+                                          <fx:include source="components/media-item.fxml" />
+                                       </children></VBox>
+                                 </content></ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
    </children>
-</AnchorPane>
+</VBox>

@@ -8,6 +8,9 @@ import java.util.HashMap;
 
 import java.io.IOException;
 
+/**
+ * Used to load and show different scenes.
+ */
 public class SceneManager {
     private static SceneManager instance;
     private Stage primaryStage;
@@ -26,6 +29,12 @@ public class SceneManager {
         this.primaryStage = stage;
     }
 
+
+    /**
+     *
+     * @param fxmlSceneName The name of the fxml scene to load.
+     * @return True or False depending on if the scene was loaded or not.
+     */
     public boolean loadScene(String fxmlSceneName) {
         try {
             // Load the FXML file and create a Scene
@@ -37,8 +46,9 @@ public class SceneManager {
             scenes.put(fxmlSceneName, scene);
             return true;
         } catch (IOException e) {
-            //e.printStackTrace();
-            System.out.println("Failed to load scene "+fxmlSceneName);
+            System.out.println("Failed to load scene: " + "'"+fxmlSceneName+"'");
+            System.out.println(e.getMessage());
+            System.out.println(e.getCause().toString());
             return false;
         }
     }
@@ -68,7 +78,7 @@ public class SceneManager {
             }
             primaryStage.show();
         } else {
-            System.out.println("Scene not found: " + sceneName);
+            System.out.println("Scene not found: " + "'"+sceneName+"'");
         }
     }
 
